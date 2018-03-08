@@ -19,7 +19,7 @@ cluster:
 
   ssh:
     user: root
-    ssh_key: /root/cluster.pem
+    ssh_key: /root/kismatic/cluster.pem
     ssh_port: 22
 
   # Override configuration of Kubernetes components.
