@@ -86,3 +86,7 @@ Finally execute the following command to tidy away the demo:
 $ kubectl delete -f examples/resource-quotas/service.yaml
 $ kubectl delete -f examples/resource-quotas/deployment.yaml
 ```
+
+## Start the ingress demo
+
+To start working through the ingress demos click [here](05-ingress-demo.md).

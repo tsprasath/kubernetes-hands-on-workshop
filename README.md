@@ -1,11 +1,13 @@
+<img src="https://avatars1.githubusercontent.com/u/13629408?s=400&v=4" width="100" height="100" />
+
 # Kubernetes Hands On Workshop
 
 The following repository will create you a Kubernetes cluster using the following:
 
 
 1. [Packet](https://www.packet.net/) for the underlying infrastructure.
-2. [Terraform (v0.11.3)](https://www.terraform.io/) to create the infrastructure.
-3. [Kismatic Enterprise Toolkit (v1.9.0)](https://github.com/apprenda/kismatic) for provisioning our Kubernetes cluster.
+2. [Terraform (v0.11.7)](https://www.terraform.io/) to create the infrastructure.
+3. [Kismatic Enterprise Toolkit (v1.11.1)](https://github.com/apprenda/kismatic) for provisioning our Kubernetes cluster.
 
 ## Prerequisities
 

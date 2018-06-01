@@ -50,3 +50,7 @@ Finally execute the following command to tidy away the demo:
 $ kubectl delete -f examples/secrets/app-secret.yaml
 $ kubectl delete -f examples/secrets/pod-with-secret.yaml
 ```
+
+## Start the resource quota demo
+
+To start working through the resource quota demos click [here](04-resource-quota-demo.md).

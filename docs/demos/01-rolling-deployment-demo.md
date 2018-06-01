@@ -80,3 +80,7 @@ Finally execute the following command to tidy away the demo:
 $ kubectl delete -f examples/rolling-deployment/service.yaml
 $ kubectl delete -f examples/rolling-deployment/deployment-v1.1.yaml
 ```
+
+## Start the health check demo
+
+To start working through the health check demos click [here](02-healthcheck-demo.md).

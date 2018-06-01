@@ -15,10 +15,10 @@ worker_node_ip = 147.75.73.145
 
 ## SSH into the bootstrap node
 
-* Execute the command `pwd` and copy the output
-* Open a new terminal tab
-* Then `cd` to that directory (e.g. `cd github.com/swade1987/kubernetes-hands-on-workshop`)
-* Execute `pwd` you should see `kubernetes-hands-on-workshop` in the output
-* Then execute the following command: `ssh -i ssh/cluster.pem root@<bootstrap_node_ip>`
+To obtain access to the bootstrap node execute the following command:
+
+```
+ssh -i ssh/cluster.pem root@<bootstrap_node_ip>
+```
 
 To provision the cluster click [here](5-provision-cluster.md)

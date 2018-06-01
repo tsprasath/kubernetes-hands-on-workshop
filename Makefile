@@ -1,5 +1,5 @@
 # Note: The 'v' below is important.
-KISMATIC_VERSION=v1.9.0
+KISMATIC_VERSION=v1.11.1
 
 ssh-keypair:
 	mkdir ssh

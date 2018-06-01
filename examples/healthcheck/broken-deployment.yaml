@@ -24,34 +24,22 @@ spec:
     spec:
       containers:
       - name: probes-demo
+        image: quay.io/swade1987/k8s-workshop-probes:1.1
+        ports:
+          - containerPort: 80
         livenessProbe:
           httpGet:
-            path: /
+            path: /healthz
             port: 80
           initialDelaySeconds: 30
           timeoutSeconds: 10
         readinessProbe:
           httpGet:
-            path: /
+            path: /healthz
             port: 80
           initialDelaySeconds: 30
           timeoutSeconds: 10
-        image: quay.io/apprenda/k8s-workshop-probes:1.1
         resources:
           requests:
             cpu: 100m
             memory: 100Mi
-        ports:
-        - containerPort: 80
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 10

@@ -19,11 +19,14 @@ spec:
     metadata:
       labels:
         app: probes-demo
-        version: "1.0"
+        version: "1.1"
         tier: frontend
     spec:
       containers:
       - name: probes-demo
+        image: quay.io/swade1987/k8s-workshop-probes:1.1
+        ports:
+          - containerPort: 80
         livenessProbe:
           httpGet:
             path: /
@@ -36,22 +39,7 @@ spec:
             port: 80
           initialDelaySeconds: 30
           timeoutSeconds: 10
-        image: quay.io/apprenda/k8s-workshop-probes:1.0
         resources:
           requests:
             cpu: 100m
             memory: 100Mi
-        ports:
-        - containerPort: 80
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 10

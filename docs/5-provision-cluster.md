@@ -4,6 +4,14 @@
 
 These steps are to be executed from the boostrap node itself!
 
+## Change directory
+
+Firstly we need to change directory using the command below:
+
+```
+cd /root/kismatic
+```
+
 ## Review the kismatic-cluster.yaml changes
 
 If you `less kismatic-cluster.yaml` and scroll to the bottom you should see that Terraform has interpolated the IP addresses for the nodes.
@@ -34,7 +42,11 @@ You should be shown:
 
 ```
 NAME       STATUS                     ROLES     AGE       VERSION
-ingress1   Ready,SchedulingDisabled   <none>    5m        v1.9.3
-master1    Ready,SchedulingDisabled   master    5m        v1.9.3
-worker1    Ready                      <none>    5m        v1.9.3
+ingress1   Ready,SchedulingDisabled   <none>    6m        v1.10.3
+master1    Ready,SchedulingDisabled   master    6m        v1.10.3
+worker1    Ready                      <none>    6m        v1.10.3
 ```
+
+## Start working through the demos
+
+To start working through the demos click [here](demos/01-rolling-deployment-demo.md).

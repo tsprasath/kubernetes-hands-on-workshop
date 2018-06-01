@@ -1,10 +1,11 @@
 cluster:
   name: kubernetes
-  version: v1.9.3
+  version: v1.10.3
   disable_package_installation: false
   disconnected_installation: false
   admin_password: password
 
+  # Networking configuration of your cluster.
   networking:
     pod_cidr_block: 172.16.0.0/16
     service_cidr_block: 172.20.0.0/16
@@ -13,10 +14,12 @@ cluster:
     https_proxy: ""
     no_proxy: ""
 
+  # Generated certs configuration.
   certificates:
     expiry: 17520h
     ca_expiry: 17520h
 
+  # SSH configuration for cluster nodes.
   ssh:
     user: root
     ssh_key: /root/kismatic/cluster.pem
@@ -38,18 +41,21 @@ cluster:
   kubelet:
     option_overrides: {}
 
+  # Kubernetes cloud provider integration.
   cloud_provider:
     provider: ""
     config: ""
 
 # Docker daemon configuration of all cluster nodes.
 docker:
+
+  # Set to true if docker is already installed and configured.
   disable: false
   logs:
     driver: json-file
     opts:
       max-file: "1"
-      max-size: 3m
+      max-size: 50m
 
   storage:
 
@@ -59,6 +65,9 @@ docker:
 
     # Used for setting up Device Mapper storage driver in direct-lvm mode.
     direct_lvm_block_device:
+
+      # Absolute path to the block device that will be used for direct-lvm mode.
+      # This device will be wiped and used exclusively by docker.
       path: ""
       thinpool_percent: "95"
       thinpool_metapercent: "1"
@@ -71,11 +80,18 @@ docker_registry:
   username: ""
   password: ""
 
+# A set of files or directories to copy from the local machine to any of the nodes in the cluster.
+additional_files: []
+
+# Add-ons are additional components that KET installs on the cluster.
 add_ons:
   cni:
     disable: false
     provider: calico
     options:
+      portmap:
+        disable: false
+
       calico:
         mode: overlay
         log_level: info
@@ -83,9 +99,16 @@ add_ons:
         felix_input_mtu: 1440
         ip_autodetection_method: first-found
 
+      weave:
+        password: ""
+
   dns:
     disable: false
-    provider: coredns
+
+    # Options: 'kubedns','coredns'.
+    provider: kubedns
+    options:
+      replicas: 2
 
   heapster:
     disable: false
@@ -94,22 +117,29 @@ add_ons:
         replicas: 2
         service_type: ClusterIP
         sink: influxdb:http://heapster-influxdb.kube-system.svc:8086
+
       influxdb:
         pvc_name: ""
 
+  # Metrics Server is a cluster-wide aggregator of resource usage data.
   metrics_server:
     disable: false
 
   dashboard:
     disable: false
+    options:
+      service_type: ClusterIP
 
   package_manager:
     disable: false
+
+    # Options: 'helm'.
     provider: helm
     options:
       helm:
         namespace: kube-system
 
+  # The rescheduler ensures that critical add-ons remain running on the cluster.
   rescheduler:
     disable: false
 

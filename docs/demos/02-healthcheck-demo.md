@@ -95,3 +95,7 @@ Finally execute the following command to tidy away the demo:
 $ kubectl delete -f examples/healthcheck/service.yaml
 $ kubectl delete -f examples/healthcheck/broken-deployment.yaml
 ```
+
+## Start the secret demo
+
+To start working through the secret demos click [here](03-secrets-demo.md).

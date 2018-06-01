@@ -8,7 +8,7 @@ variable "packet_project_name" {
 
 variable region {
   description = "Region to launch in"
-  default     = "ewr1"
+  default     = "ams1"
 }
 
 variable instance_operating_system {
